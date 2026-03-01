@@ -11,7 +11,7 @@ interface CurtainRevealProps {
   whatsappGroupLink?: string
 }
 
-export default function CurtainReveal({ result, onReset, curtainStage, onOpenCurtain, whatsappGroupLink }: CurtainRevealProps) {
+export default function CurtainReveal({ result, curtainStage, onOpenCurtain, whatsappGroupLink }: CurtainRevealProps) {
   return (
     <div className="curtain-container fixed inset-0 z-50 overflow-hidden">
       {/* Stage Background */}
