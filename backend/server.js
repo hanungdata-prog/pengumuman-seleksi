@@ -9,8 +9,8 @@ dotenv.config();
 
 const app = express();
 
-// Trust proxy for HTTPS detection (Railway uses reverse proxy)
-app.set('trust proxy', true);
+// Trust proxy - must be before session (for HTTPS detection)
+app.set('trust proxy', 1);
 
 // CORS configuration
 const allowedOrigins = [
@@ -119,7 +119,7 @@ app.get('/auth/google/callback',
       const frontendURL = process.env.FRONTEND_URL || 'http://localhost:5173';
       return `${frontendURL}/?error=${encodeURIComponent(errorMsg)}`;
     },
-    successRedirect: '/'
+    successRedirect: process.env.FRONTEND_URL || 'http://localhost:5173'
   })
 );
 
