@@ -38,7 +38,9 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   cookie: {
-    secure: process.env.NODE_ENV === 'production',
+    secure: process.env.NODE_ENV === 'production', // true for HTTPS
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+    httpOnly: true,
     maxAge: 24 * 60 * 60 * 1000 // 24 hours
   }
 }));
@@ -116,12 +118,9 @@ app.get('/auth/google/callback',
       const errorMsg = req.authInfo?.message || 'Authentication failed';
       const frontendURL = process.env.FRONTEND_URL || 'http://localhost:5173';
       return `${frontendURL}/?error=${encodeURIComponent(errorMsg)}`;
-    }
-  }),
-  (req, res) => {
-    const frontendURL = process.env.FRONTEND_URL || 'http://localhost:5173';
-    res.redirect(frontendURL);
-  }
+    },
+    successRedirect: '/'
+  })
 );
 
 // Logout route
