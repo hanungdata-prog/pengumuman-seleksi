@@ -20,7 +20,7 @@ interface PengumumanData {
 
 const PENGUMUMAN_DATA: PengumumanData[] = [
   { nama: "Hanung Akbar Pramusintho", nim: "124140207", divisi: "Eksternal", status: "diterima" },
-  { nama: "Dina Olivia", nim: "124140213", divisi: "Internal", status: "diterima" },
+  { nama: "Dina Olivia", nim: "124140213", divisi: "Eksternal", status: "diterima" },
   { nama: "Habib Al Rasyid", nim: "125370047", divisi: "Web Development", status: "diterima" },
   { nama: "Adinda Syaira Fatima", nim: "125430037", divisi: "UI/UX Design", status: "diterima" },
   { nama: "Muhammad Aditya Ilham", nim: "125120040", divisi: "Mobile Development", status: "ditolak" },
@@ -137,7 +137,7 @@ const PENGUMUMAN_DATA: PengumumanData[] = [
 ]
 
 const WHATSAPP_GROUPS: Record<string, string> = {
-  "Data Science": "https://chat.whatsapp.com/KcuLG70hPjSKWTwFYkjc7m?mode=gi_t",
+  "Eksternal": "https://chat.whatsapp.com/KcuLG70hPjSKWTwFYkjc7m?mode=gi_t",
   "Web Development": "https://chat.whatsapp.com/your-web-dev-group-link",
   "UI/UX Design": "https://chat.whatsapp.com/your-uiux-group-link",
   "Mobile Development": "https://chat.whatsapp.com/your-mobile-dev-group-link",
