@@ -45,7 +45,7 @@ app.use(passport.session());
 
 // Google OAuth Strategy
 const callbackURL = process.env.NODE_ENV === 'production'
-  ? `${process.env.BACKEND_URL}/auth/google/callback`
+  ? '/auth/google/callback'
   : '/auth/google/callback';
 
 passport.use(new GoogleStrategy({
