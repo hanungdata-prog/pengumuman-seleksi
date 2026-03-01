@@ -36,7 +36,7 @@ export default function Login({ onLoginSuccess }: LoginProps) {
           onLoginSuccess(data.user)
         }
       })
-      .catch(() => {})
+      .catch(() => { })
   }, [API_URL, onLoginSuccess])
 
   const handleGoogleLogin = () => {
@@ -52,9 +52,9 @@ export default function Login({ onLoginSuccess }: LoginProps) {
         <div className="bg-white rounded-2xl shadow-xl p-8">
           {/* Header */}
           <div className="text-center mb-8">
-            <img 
-              src="/logo/Logo-IKM-PNG.png" 
-              alt="Logo IKM" 
+            <img
+              src="/logo/Logo-IKM-PNG.png"
+              alt="Logo IKM"
               className="w-24 h-24 mx-auto mb-4 object-contain"
             />
             <h1 className="text-2xl font-bold text-gray-800 mb-2">
@@ -77,11 +77,6 @@ export default function Login({ onLoginSuccess }: LoginProps) {
           <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
             <p className="text-sm text-blue-800">
               <strong>Catatan:</strong> Hanya email <strong>@student.itera.ac.id</strong> yang diizinkan untuk login.
-            </p>
-            <p className="text-sm text-blue-700 mt-2">
-              <strong>Format email:</strong> nama.nim@student.itera.ac.id
-              <br />
-              <span className="text-xs text-blue-600">Contoh: hanung.124140207@student.itera.ac.id</span>
             </p>
           </div>
 

@@ -26,6 +26,12 @@ const PENGUMUMAN_DATA: PengumumanData[] = [
     status: "diterima"
   },
   {
+    nama: "Dina Olivia",
+    nim: "124140213",
+    divisi: "Data Science",
+    status: "diterima"
+  },
+  {
     nama: "Habib Al Rasyid",
     nim: "125370047",
     divisi: "Web Development",
@@ -705,6 +711,17 @@ const PENGUMUMAN_DATA: PengumumanData[] = [
   }
 ]
 
+// WhatsApp Group Links per Divisi
+const WHATSAPP_GROUPS: Record<string, string> = {
+  "Data Science": "https://chat.whatsapp.com/KcuLG70hPjSKWTwFYkjc7m?mode=gi_t",
+  "Web Development": "https://chat.whatsapp.com/your-web-dev-group-link",
+  "UI/UX Design": "https://chat.whatsapp.com/your-uiux-group-link",
+  "Mobile Development": "https://chat.whatsapp.com/your-mobile-dev-group-link",
+  "DevOps": "https://chat.whatsapp.com/your-devops-group-link",
+  "Digital Marketing": "https://chat.whatsapp.com/your-digital-marketing-group-link",
+  "Content Creator": "https://chat.whatsapp.com/your-content-creator-group-link"
+}
+
 function App() {
   const [user, setUser] = useState<User | null>(null)
   const [isLoadingAuth, setIsLoadingAuth] = useState(true)
@@ -946,6 +963,7 @@ function App() {
             onReset={handleReset}
             curtainStage={curtainStage}
             onOpenCurtain={handleOpenCurtain}
+            whatsappGroupLink={result.status === 'diterima' ? WHATSAPP_GROUPS[result.divisi] : undefined}
           />
         )}
 
