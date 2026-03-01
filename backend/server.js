@@ -9,6 +9,9 @@ dotenv.config();
 
 const app = express();
 
+// Trust proxy for HTTPS detection (Railway uses reverse proxy)
+app.set('trust proxy', true);
+
 // CORS configuration
 const allowedOrigins = [
   'http://localhost:5173',
