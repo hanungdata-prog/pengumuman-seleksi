@@ -56,16 +56,15 @@ const callbackURL = process.env.NODE_ENV === 'production'
 passport.use(new GoogleStrategy({
   clientID: process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
-  callbackURL: callbackURL,
-  hd: 'student.itera.ac.id'
+  callbackURL: callbackURL
 },
 (accessToken, refreshToken, profile, done) => {
   try {
     const email = profile.emails?.[0]?.value;
-    
+
     // Validate email domain for security
     if (!email || !email.endsWith('@student.itera.ac.id')) {
-      return done(null, false, { message: 'Only @student.itera.ac.id emails are allowed' });
+      return done(null, false, { message: 'Hanya email @student.itera.ac.id yang diizinkan' });
     }
 
     // Parse NIM from email using regex
@@ -108,7 +107,7 @@ passport.deserializeUser((obj, done) => {
 app.get('/auth/google',
   passport.authenticate('google', {
     scope: ['profile', 'email'],
-    hd: 'student.itera.ac.id'
+    prompt: 'select_account'  // Allow user to choose account
   })
 );
 
