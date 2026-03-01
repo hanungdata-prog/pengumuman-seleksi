@@ -1,0 +1,10 @@
+{
+  "providers": [],
+  "build": {
+    "include": [],
+    "command": "echo 'No build needed'"
+  },
+  "start": {
+    "command": "node server.js"
+  }
+}
