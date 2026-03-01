@@ -113,7 +113,7 @@ export default function CurtainReveal({ result, onReset, curtainStage, onOpenCur
             </p>
 
             {/* CTA Button */}
-            {result.status === 'diterima' && whatsappGroupLink ? (
+            {result.status === 'diterima' && whatsappGroupLink && (
               <a
                 href={whatsappGroupLink}
                 target="_blank"
@@ -125,13 +125,6 @@ export default function CurtainReveal({ result, onReset, curtainStage, onOpenCur
                 </svg>
                 GABUNG KE GROUP
               </a>
-            ) : (
-              <button
-                onClick={onReset}
-                className="w-full py-4 px-6 bg-gradient-to-r from-[#f0c040] to-[#b88a00] text-[#0a0704] font-bold text-base rounded-xl hover:brightness-110 transition-all font-['Cinzel_Decorative'] tracking-wider shadow-lg hover:scale-[1.02] active:scale-[0.98]"
-              >
-                CEK LAGI
-              </button>
             )}
           </div>
         )}
