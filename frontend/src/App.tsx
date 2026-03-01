@@ -20,38 +20,686 @@ interface PengumumanData {
 
 const PENGUMUMAN_DATA: PengumumanData[] = [
   {
-    nama: "Budi Santoso",
-    nim: "22010101",
-    divisi: "Web Development",
-    status: "diterima"
-  },
-  {
-    nama: "Siti Aminah",
-    nim: "22010102",
-    divisi: "UI/UX Design",
-    status: "ditolak"
-  },
-  {
-    nama: "Ahmad Rizki",
-    nim: "22010103",
-    divisi: "Mobile Development",
-    status: "diterima"
-  },
-  {
-    nama: "Dewi Lestari",
-    nim: "22010104",
-    divisi: "Data Science",
-    status: "ditolak"
-  },
-  {
     nama: "Hanung Akbar Pramusintho",
     nim: "124140207",
     divisi: "Data Science",
     status: "diterima"
   },
   {
-    nama: "Eko Prasetyo",
-    nim: "22010105",
+    nama: "Habib Al Rasyid",
+    nim: "125370047",
+    divisi: "Web Development",
+    status: "diterima"
+  },
+  {
+    nama: "Adinda Syaira Fatima",
+    nim: "125430037",
+    divisi: "UI/UX Design",
+    status: "diterima"
+  },
+  {
+    nama: "Muhammad Aditya Ilham",
+    nim: "125120040",
+    divisi: "Mobile Development",
+    status: "ditolak"
+  },
+  {
+    nama: "Muthia Rabbani",
+    nim: "125400002",
+    divisi: "Data Science",
+    status: "diterima"
+  },
+  {
+    nama: "Ratna Azizah Ismail",
+    nim: "125140058",
+    divisi: "DevOps",
+    status: "ditolak"
+  },
+  {
+    nama: "Muhammad Haikal Farros",
+    nim: "125450049",
+    divisi: "Web Development",
+    status: "diterima"
+  },
+  {
+    nama: "Dwi Reva Qolbi Rahmayani",
+    nim: "125120188",
+    divisi: "Digital Marketing",
+    status: "diterima"
+  },
+  {
+    nama: "Ilhami Nur Akbar",
+    nim: "125370137",
+    divisi: "Mobile Development",
+    status: "ditolak"
+  },
+  {
+    nama: "Cantika Ramadhani",
+    nim: "125230094",
+    divisi: "Content Creator",
+    status: "diterima"
+  },
+  {
+    nama: "Naila Husna",
+    nim: "125240083",
+    divisi: "UI/UX Design",
+    status: "ditolak"
+  },
+  {
+    nama: "Revina Adha Putri",
+    nim: "125250033",
+    divisi: "Data Science",
+    status: "diterima"
+  },
+  {
+    nama: "Jihan Asyisyura",
+    nim: "125120134",
+    divisi: "Web Development",
+    status: "diterima"
+  },
+  {
+    nama: "Assyifa Nabiilah",
+    nim: "125120024",
+    divisi: "DevOps",
+    status: "ditolak"
+  },
+  {
+    nama: "Anisa Ramadani",
+    nim: "125140018",
+    divisi: "Digital Marketing",
+    status: "diterima"
+  },
+  {
+    nama: "Adhy Ammara Fayaza",
+    nim: "125190134",
+    divisi: "Mobile Development",
+    status: "diterima"
+  },
+  {
+    nama: "Afif Ardean",
+    nim: "125230009",
+    divisi: "Web Development",
+    status: "ditolak"
+  },
+  {
+    nama: "Febrika Aulia",
+    nim: "125310048",
+    divisi: "Content Creator",
+    status: "diterima"
+  },
+  {
+    nama: "Almalia Putri",
+    nim: "125310024",
+    divisi: "UI/UX Design",
+    status: "diterima"
+  },
+  {
+    nama: "Nur Aini",
+    nim: "125130074",
+    divisi: "Data Science",
+    status: "ditolak"
+  },
+  {
+    nama: "Syurya Husni",
+    nim: "125190023",
+    divisi: "Web Development",
+    status: "diterima"
+  },
+  {
+    nama: "Quratul Hafidza",
+    nim: "125220052",
+    divisi: "Digital Marketing",
+    status: "diterima"
+  },
+  {
+    nama: "Zahra Salsabila",
+    nim: "125140177",
+    divisi: "Mobile Development",
+    status: "ditolak"
+  },
+  {
+    nama: "Habil Habibi",
+    nim: "125480011",
+    divisi: "DevOps",
+    status: "diterima"
+  },
+  {
+    nama: "Dira Dwi Fimarta",
+    nim: "125430068",
+    divisi: "Content Creator",
+    status: "ditolak"
+  },
+  {
+    nama: "Nagita Safitri",
+    nim: "125240019",
+    divisi: "UI/UX Design",
+    status: "diterima"
+  },
+  {
+    nama: "Zakiah Ulfa Haniah",
+    nim: "125310069",
+    divisi: "Data Science",
+    status: "diterima"
+  },
+  {
+    nama: "Ibnu Kamil Al Amin",
+    nim: "125220115",
+    divisi: "Web Development",
+    status: "ditolak"
+  },
+  {
+    nama: "Syaiyatul Husyaini",
+    nim: "125190001",
+    divisi: "Mobile Development",
+    status: "diterima"
+  },
+  {
+    nama: "Habyby Firmansyah",
+    nim: "125170094",
+    divisi: "DevOps",
+    status: "ditolak"
+  },
+  {
+    nama: "Abdul Rafi Afesa",
+    nim: "125260195",
+    divisi: "Digital Marketing",
+    status: "diterima"
+  },
+  {
+    nama: "Regina Azqia Qalbi",
+    nim: "125310095",
+    divisi: "Content Creator",
+    status: "diterima"
+  },
+  {
+    nama: "Wiska Lukhfiah Irwani",
+    nim: "125120022",
+    divisi: "Web Development",
+    status: "ditolak"
+  },
+  {
+    nama: "Muhammad Dzaky Kasri",
+    nim: "125120005",
+    divisi: "UI/UX Design",
+    status: "diterima"
+  },
+  {
+    nama: "Lutfi Fadilla",
+    nim: "125230058",
+    divisi: "Data Science",
+    status: "diterima"
+  },
+  {
+    nama: "Khairunnisa",
+    nim: "125340023",
+    divisi: "Mobile Development",
+    status: "ditolak"
+  },
+  {
+    nama: "Chaisa Cahaya Putri Natali Shangun",
+    nim: "125280065",
+    divisi: "DevOps",
+    status: "diterima"
+  },
+  {
+    nama: "Fiola Dwi Martha",
+    nim: "125410081",
+    divisi: "Digital Marketing",
+    status: "ditolak"
+  },
+  {
+    nama: "Nabila Darma",
+    nim: "125430032",
+    divisi: "Content Creator",
+    status: "diterima"
+  },
+  {
+    nama: "Gibran Maulana",
+    nim: "125130084",
+    divisi: "Web Development",
+    status: "diterima"
+  },
+  {
+    nama: "Deni Wilastra",
+    nim: "125140025",
+    divisi: "UI/UX Design",
+    status: "ditolak"
+  },
+  {
+    nama: "Yusuf Anaqi",
+    nim: "125230132",
+    divisi: "Data Science",
+    status: "diterima"
+  },
+  {
+    nama: "Brian Hidayat",
+    nim: "125120033",
+    divisi: "Mobile Development",
+    status: "diterima"
+  },
+  {
+    nama: "Rizka Yuliatika",
+    nim: "125310038",
+    divisi: "DevOps",
+    status: "ditolak"
+  },
+  {
+    nama: "Rizki Aprilian Putra",
+    nim: "125290012",
+    divisi: "Digital Marketing",
+    status: "diterima"
+  },
+  {
+    nama: "Dhea Amanda",
+    nim: "125210057",
+    divisi: "Content Creator",
+    status: "ditolak"
+  },
+  {
+    nama: "Irvan Hanif",
+    nim: "125480028",
+    divisi: "Web Development",
+    status: "diterima"
+  },
+  {
+    nama: "Muhammad Enggar At Thaariq",
+    nim: "125370105",
+    divisi: "UI/UX Design",
+    status: "diterima"
+  },
+  {
+    nama: "Syarifatuhuda",
+    nim: "1253900036",
+    divisi: "Data Science",
+    status: "ditolak"
+  },
+  {
+    nama: "Zakhruf Muharwan Yanza",
+    nim: "125480021",
+    divisi: "Mobile Development",
+    status: "diterima"
+  },
+  {
+    nama: "Ramda Zaki Yulindra",
+    nim: "125140134",
+    divisi: "DevOps",
+    status: "ditolak"
+  },
+  {
+    nama: "Hanifha Aulia Putri",
+    nim: "125510076",
+    divisi: "Digital Marketing",
+    status: "diterima"
+  },
+  {
+    nama: "Yahya Abdi Rahman",
+    nim: "125390065",
+    divisi: "Content Creator",
+    status: "diterima"
+  },
+  {
+    nama: "Muhammad Al-Farabi Putra Syahendri",
+    nim: "125370008",
+    divisi: "Web Development",
+    status: "ditolak"
+  },
+  {
+    nama: "Afriza Yulia Azra",
+    nim: "125420080",
+    divisi: "UI/UX Design",
+    status: "diterima"
+  },
+  {
+    nama: "Muhammad Daffa Addinul Putra",
+    nim: "125370065",
+    divisi: "Data Science",
+    status: "diterima"
+  },
+  {
+    nama: "Hadits Wirdatuljannah Syafna",
+    nim: "125180029",
+    divisi: "Mobile Development",
+    status: "ditolak"
+  },
+  {
+    nama: "Bunga Ramda Ruliesty",
+    nim: "125430096",
+    divisi: "DevOps",
+    status: "diterima"
+  },
+  {
+    nama: "Fika Armelia",
+    nim: "125230072",
+    divisi: "Digital Marketing",
+    status: "ditolak"
+  },
+  {
+    nama: "Bening Arianti",
+    nim: "125450068",
+    divisi: "Content Creator",
+    status: "diterima"
+  },
+  {
+    nama: "Ghandy Prasetia",
+    nim: "125170115",
+    divisi: "Web Development",
+    status: "diterima"
+  },
+  {
+    nama: "Suci Ramadhani",
+    nim: "125470075",
+    divisi: "UI/UX Design",
+    status: "ditolak"
+  },
+  {
+    nama: "Miftahul Jannah",
+    nim: "125430012",
+    divisi: "Data Science",
+    status: "diterima"
+  },
+  {
+    nama: "Salsabila Putri Ayunda",
+    nim: "125430089",
+    divisi: "Mobile Development",
+    status: "diterima"
+  },
+  {
+    nama: "Afi Zuhdi Azizi",
+    nim: "125470016",
+    divisi: "DevOps",
+    status: "ditolak"
+  },
+  {
+    nama: "Nayla Salsabila",
+    nim: "125430108",
+    divisi: "Digital Marketing",
+    status: "diterima"
+  },
+  {
+    nama: "Caesa Lady Anelka",
+    nim: "125260132",
+    divisi: "Content Creator",
+    status: "ditolak"
+  },
+  {
+    nama: "Dimas Hadi Prasetiyo",
+    nim: "125480047",
+    divisi: "Web Development",
+    status: "diterima"
+  },
+  {
+    nama: "M. Naufal",
+    nim: "125230141",
+    divisi: "UI/UX Design",
+    status: "diterima"
+  },
+  {
+    nama: "Muhammad Fathih Farhat",
+    nim: "125340082",
+    divisi: "Data Science",
+    status: "ditolak"
+  },
+  {
+    nama: "Rency Irfandasri",
+    nim: "125400066",
+    divisi: "Mobile Development",
+    status: "diterima"
+  },
+  {
+    nama: "Arifa Eka Nurrahma",
+    nim: "125220166",
+    divisi: "DevOps",
+    status: "ditolak"
+  },
+  {
+    nama: "M. Farhan Ramadhan",
+    nim: "125310054",
+    divisi: "Digital Marketing",
+    status: "diterima"
+  },
+  {
+    nama: "Fauzi Rahman",
+    nim: "125170042",
+    divisi: "Content Creator",
+    status: "diterima"
+  },
+  {
+    nama: "Diva Febriani",
+    nim: "125180076",
+    divisi: "Web Development",
+    status: "ditolak"
+  },
+  {
+    nama: "Miftahul Gina",
+    nim: "125260074",
+    divisi: "UI/UX Design",
+    status: "diterima"
+  },
+  {
+    nama: "Aina Nur Arifah",
+    nim: "125210173",
+    divisi: "Data Science",
+    status: "diterima"
+  },
+  {
+    nama: "Ariq Rais Alfarizy",
+    nim: "125120031",
+    divisi: "Mobile Development",
+    status: "ditolak"
+  },
+  {
+    nama: "Nurul Hanifah",
+    nim: "125420034",
+    divisi: "DevOps",
+    status: "diterima"
+  },
+  {
+    nama: "Saula Tifa",
+    nim: "125260039",
+    divisi: "Digital Marketing",
+    status: "ditolak"
+  },
+  {
+    nama: "M. Fuad Aqil",
+    nim: "125120174",
+    divisi: "Content Creator",
+    status: "diterima"
+  },
+  {
+    nama: "Futiha Rahayu Wulandari",
+    nim: "125150045",
+    divisi: "Web Development",
+    status: "diterima"
+  },
+  {
+    nama: "Wahyu Oktrian Fernanda",
+    nim: "125210117",
+    divisi: "UI/UX Design",
+    status: "ditolak"
+  },
+  {
+    nama: "Diana Warman",
+    nim: "125230047",
+    divisi: "Data Science",
+    status: "diterima"
+  },
+  {
+    nama: "Zahla Utari Taufik",
+    nim: "125500034",
+    divisi: "Mobile Development",
+    status: "diterima"
+  },
+  {
+    nama: "Alya Zahwa Harnela",
+    nim: "125150011",
+    divisi: "DevOps",
+    status: "ditolak"
+  },
+  {
+    nama: "Alya Natasya",
+    nim: "125120080",
+    divisi: "Digital Marketing",
+    status: "diterima"
+  },
+  {
+    nama: "Muhammad Rafiif Zulwi",
+    nim: "125210121",
+    divisi: "Content Creator",
+    status: "diterima"
+  },
+  {
+    nama: "Hafizul Zikri",
+    nim: "125210181",
+    divisi: "Web Development",
+    status: "ditolak"
+  },
+  {
+    nama: "Muhammad Abdul Hakim",
+    nim: "125360037",
+    divisi: "UI/UX Design",
+    status: "diterima"
+  },
+  {
+    nama: "Faktur Rahman Yovindra",
+    nim: "125130023",
+    divisi: "Data Science",
+    status: "diterima"
+  },
+  {
+    nama: "Muhammad Abdul Roif",
+    nim: "125150117",
+    divisi: "Mobile Development",
+    status: "ditolak"
+  },
+  {
+    nama: "Efni Rahayu",
+    nim: "125260022",
+    divisi: "DevOps",
+    status: "diterima"
+  },
+  {
+    nama: "Aidhila Gueto Rinata",
+    nim: "125420022",
+    divisi: "Digital Marketing",
+    status: "ditolak"
+  },
+  {
+    nama: "Chairan Fadjri",
+    nim: "125460019",
+    divisi: "Content Creator",
+    status: "diterima"
+  },
+  {
+    nama: "Inayatul Husna",
+    nim: "125120026",
+    divisi: "Web Development",
+    status: "diterima"
+  },
+  {
+    nama: "Intan Nofita Yusni",
+    nim: "125360114",
+    divisi: "UI/UX Design",
+    status: "ditolak"
+  },
+  {
+    nama: "Muhammad Alfo Siddiq",
+    nim: "125130138",
+    divisi: "Data Science",
+    status: "diterima"
+  },
+  {
+    nama: "Muhammad Syukri",
+    nim: "125310066",
+    divisi: "Mobile Development",
+    status: "diterima"
+  },
+  {
+    nama: "Raditya Viendra",
+    nim: "125230119",
+    divisi: "DevOps",
+    status: "ditolak"
+  },
+  {
+    nama: "Selvi Anggeraini",
+    nim: "125520033",
+    divisi: "Digital Marketing",
+    status: "diterima"
+  },
+  {
+    nama: "Nggara Triarista",
+    nim: "125360065",
+    divisi: "Content Creator",
+    status: "ditolak"
+  },
+  {
+    nama: "Siska Ernawati",
+    nim: "125370102",
+    divisi: "Web Development",
+    status: "diterima"
+  },
+  {
+    nama: "Amira Fadhila Hanan",
+    nim: "125310012",
+    divisi: "UI/UX Design",
+    status: "diterima"
+  },
+  {
+    nama: "Auza Ramadani",
+    nim: "125310094",
+    divisi: "Data Science",
+    status: "ditolak"
+  },
+  {
+    nama: "Bintang Nito Alfath",
+    nim: "125230049",
+    divisi: "Mobile Development",
+    status: "diterima"
+  },
+  {
+    nama: "Farras Abeldira Salsabila",
+    nim: "125500082",
+    divisi: "DevOps",
+    status: "ditolak"
+  },
+  {
+    nama: "M. Ilham Ghifari",
+    nim: "125210140",
+    divisi: "Digital Marketing",
+    status: "diterima"
+  },
+  {
+    nama: "Jupri Alfiandi",
+    nim: "125130048",
+    divisi: "Content Creator",
+    status: "diterima"
+  },
+  {
+    nama: "Riva Septia Nanda",
+    nim: "125450114",
+    divisi: "Web Development",
+    status: "ditolak"
+  },
+  {
+    nama: "Septivo Dhito Chandra",
+    nim: "124410126",
+    divisi: "UI/UX Design",
+    status: "diterima"
+  },
+  {
+    nama: "Muhammad Syafiq Rida",
+    nim: "125400084",
+    divisi: "Data Science",
+    status: "diterima"
+  },
+  {
+    nama: "Muhammad Rafka",
+    nim: "124450089",
+    divisi: "Mobile Development",
+    status: "ditolak"
+  },
+  {
+    nama: "Arijal Alfi Syahri",
+    nim: "125170016",
     divisi: "DevOps",
     status: "diterima"
   }
