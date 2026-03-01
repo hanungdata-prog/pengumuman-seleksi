@@ -112,15 +112,18 @@ app.get('/auth/google',
 );
 
 app.get('/auth/google/callback',
-  passport.authenticate('google', {
-    failureRedirect: (req, res) => {
-      const errorMsg = req.authInfo?.message || 'Authentication failed';
-      const frontendURL = process.env.FRONTEND_URL || 'http://localhost:5173';
-      return `${frontendURL}/?error=${encodeURIComponent(errorMsg)}`;
-    },
+  passport.authenticate('google', { 
+    failureRedirect: '/auth/google/failure',
     successRedirect: process.env.FRONTEND_URL || 'http://localhost:5173'
   })
 );
+
+// Handle failure with error message
+app.get('/auth/google/failure', (req, res) => {
+  const errorMsg = req.authInfo?.message || 'Authentication failed';
+  const frontendURL = process.env.FRONTEND_URL || 'http://localhost:5173';
+  res.redirect(`${frontendURL}/?error=${encodeURIComponent(errorMsg)}`);
+});
 
 // Logout route
 app.get('/auth/logout', (req, res, next) => {
