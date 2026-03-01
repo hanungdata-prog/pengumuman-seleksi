@@ -137,7 +137,7 @@ app.get('/api/auth/status', (req, res) => {
       authenticated: true,
       user: {
         id: req.user.id,
-        name: req.user.displayName,
+        name: req.user.name,
         email: req.user.email,
         nim: req.user.nim,
         picture: req.user.picture?.replace('=s96-c', '=s48-c')
@@ -156,4 +156,7 @@ app.get('/api/health', (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
+  if (process.env.NODE_ENV === 'production') {
+    console.log(`Production mode: ${process.env.BACKEND_URL || 'Railway'}`);
+  }
 });
