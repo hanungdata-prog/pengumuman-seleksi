@@ -677,7 +677,7 @@ function App() {
           {/* Page Header */}
           <div className="page-header">
             <p className="page-eyebrow">BPH IKM · 2026 - 2027</p>
-            <h1 className="page-title">Pengumuman Seleksi</h1>
+            <h1 className="page-title">Pengumuman Penetapan Staff</h1>
             <p className="page-subtitle">Cek status kelulusan Anda di sini</p>
             <div className="header-deco">
               <div className="deco-line" />
