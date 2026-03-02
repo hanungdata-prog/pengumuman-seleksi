@@ -192,32 +192,10 @@ function App() {
   }
 
   const handleOpenCurtain = () => {
-    setCurtainStage('opening')
-
-    // Preload all audio files
-    const sounds: HTMLAudioElement[] = []
-      ;[5, 4, 3, 2, 1].forEach((num) => {
-        const audio = new Audio(`/sounds/countdown-${num}.mp3`)
-        audio.volume = 0.5
-        sounds.push(audio)
-      })
-
-      // Play sounds with delay: 5, 4, 3, 2, 1 (1 second each)
-      ;[0, 1, 2, 3, 4].forEach((index) => {
-        setTimeout(() => {
-          sounds[index].play().catch((err) => {
-            console.error(`Audio countdown-${5 - index} failed:`, err)
-          })
-        }, index * 1000)
-      })
-
-    // Open curtains after countdown (6 seconds total)
-    setTimeout(() => {
-      setCurtainStage('open')
-      if (result?.status === 'diterima') {
-        confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } })
-      }
-    }, 6000)
+    setCurtainStage('open')
+    if (result?.status === 'diterima') {
+      confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } })
+    }
   }
 
   if (!isLoadingAuth && !user) {
