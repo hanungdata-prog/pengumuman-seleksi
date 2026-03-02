@@ -1,6 +1,12 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "devCommand": "npm run dev",
-  "installCommand": "npm install"
+  "rewrites": [
+    {
+      "source": "/auth/:path*",
+      "destination": "https://pengumuman-seleksi-production.up.railway.app/auth/:path*"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "https://pengumuman-seleksi-production.up.railway.app/api/:path*"
+    }
+  ]
 }

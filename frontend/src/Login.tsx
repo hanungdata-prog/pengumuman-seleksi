@@ -16,6 +16,8 @@ export default function Login({ onLoginSuccess }: LoginProps) {
   const [error, setError] = useState<string>('')
   const API_URL = import.meta.env.VITE_API_URL || ''
   const isDevelopment = import.meta.env.DEV
+  // Use relative path in production (Vercel proxy), absolute in development
+  const baseURL = isDevelopment ? API_URL : ''
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
@@ -26,7 +28,7 @@ export default function Login({ onLoginSuccess }: LoginProps) {
       window.history.replaceState({}, document.title, window.location.pathname)
     }
 
-    fetch(`${API_URL}/api/auth/status`)
+    fetch(`${baseURL}/api/auth/status`, { credentials: 'include' })
       .then((res) => res.json())
       .then((data) => {
         if (data.authenticated) {
@@ -34,10 +36,10 @@ export default function Login({ onLoginSuccess }: LoginProps) {
         }
       })
       .catch(() => { })
-  }, [API_URL, onLoginSuccess])
+  }, [baseURL, onLoginSuccess])
 
   const handleGoogleLogin = () => {
-    const loginUrl = isDevelopment ? '/auth/google' : `${API_URL}/auth/google`
+    const loginUrl = `${baseURL}/auth/google`
     window.location.href = loginUrl
   }
 

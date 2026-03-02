@@ -9,25 +9,19 @@ dotenv.config();
 
 const app = express();
 
-// Trust proxy - must be before session (for HTTPS detection)
 app.set('trust proxy', 1);
 
-// CORS configuration - iOS compatible
+// CORS - hanya izinkan dari frontend Vercel
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://*.vercel.app',
+  'https://pengumuman-seleksi-frontend.vercel.app',
   process.env.FRONTEND_URL
 ].filter(Boolean);
 
 app.use(cors({
   origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or Postman)
     if (!origin) return callback(null, true);
-    
-    // Check against allowed origins
-    if (allowedOrigins.some(orig => 
-      orig === origin || (orig.includes('*') && origin?.match(new RegExp(orig.replace('*', '.*'))))
-    )) {
+    if (allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
@@ -38,16 +32,16 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
-// Session configuration - iOS compatible
+// Session - karena sudah diproxy Vercel, frontend & backend same-site
 app.use(session({
   secret: process.env.SESSION_SECRET || 'your-secret-key-change-in-production',
   resave: false,
   saveUninitialized: false,
   cookie: {
-    secure: process.env.NODE_ENV === 'production', // true for HTTPS
-    sameSite: 'lax', // iOS compatible - 'lax' works for top-level navigations
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
     httpOnly: true,
-    maxAge: 24 * 60 * 60 * 1000, // 24 hours
+    maxAge: 24 * 60 * 60 * 1000,
     path: '/'
   }
 }));
@@ -55,9 +49,10 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Google OAuth Strategy
+// Google OAuth - callback URL menggunakan domain FRONTEND (Vercel proxy)
+const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173';
 const callbackURL = process.env.NODE_ENV === 'production'
-  ? '/auth/google/callback'
+  ? `${FRONTEND_URL}/auth/google/callback`
   : '/auth/google/callback';
 
 passport.use(new GoogleStrategy({
@@ -69,28 +64,23 @@ passport.use(new GoogleStrategy({
   try {
     const email = profile.emails?.[0]?.value;
 
-    // Validate email domain for security
     if (!email || !email.endsWith('@student.itera.ac.id')) {
       return done(null, false, { message: 'Hanya email @student.itera.ac.id yang diizinkan' });
     }
 
-    // Parse NIM from email using regex
-    // Format: nama.nim@student.itera.ac.id (NIM must be 9 digits)
     const match = email.match(/^(.+)\.(\d{9})@student\.itera\.ac\.id$/);
 
     if (!match) {
-      return done(null, false, { 
-        message: 'Invalid email format. Expected: nama.nim@student.itera.ac.id (NIM must be 9 digits)' 
+      return done(null, false, {
+        message: 'Format email tidak valid. Expected: nama.nim@student.itera.ac.id (NIM 9 digit)'
       });
     }
-
-    const parsedNim = match[2];
 
     const user = {
       id: profile.id,
       name: profile.displayName,
       email,
-      nim: parsedNim,
+      nim: match[2],
       picture: profile.photos?.[0]?.value
     };
 
@@ -100,48 +90,36 @@ passport.use(new GoogleStrategy({
   }
 }));
 
-// Serialize user for session
-passport.serializeUser((user, done) => {
-  done(null, user);
-});
-
-// Deserialize user from session
-passport.deserializeUser((obj, done) => {
-  done(null, obj);
-});
+passport.serializeUser((user, done) => done(null, user));
+passport.deserializeUser((obj, done) => done(null, obj));
 
 // Auth routes
 app.get('/auth/google',
   passport.authenticate('google', {
     scope: ['profile', 'email'],
-    prompt: 'select_account'  // Allow user to choose account
+    prompt: 'select_account'
   })
 );
 
 app.get('/auth/google/callback',
-  passport.authenticate('google', { 
+  passport.authenticate('google', {
     failureRedirect: '/auth/google/failure',
-    successRedirect: process.env.FRONTEND_URL || 'http://localhost:5173'
+    successRedirect: FRONTEND_URL
   })
 );
 
-// Handle failure with error message
 app.get('/auth/google/failure', (req, res) => {
   const errorMsg = req.authInfo?.message || 'Authentication failed';
-  const frontendURL = process.env.FRONTEND_URL || 'http://localhost:5173';
-  res.redirect(`${frontendURL}/?error=${encodeURIComponent(errorMsg)}`);
+  res.redirect(`${FRONTEND_URL}/?error=${encodeURIComponent(errorMsg)}`);
 });
 
-// Logout route
 app.get('/auth/logout', (req, res, next) => {
   req.logout((err) => {
     if (err) return next(err);
-    const frontendURL = process.env.FRONTEND_URL || 'http://localhost:5173';
-    res.redirect(frontendURL);
+    res.redirect(FRONTEND_URL);
   });
 });
 
-// Check auth status
 app.get('/api/auth/status', (req, res) => {
   if (req.isAuthenticated()) {
     res.json({
@@ -159,7 +137,6 @@ app.get('/api/auth/status', (req, res) => {
   }
 });
 
-// Health check
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok' });
 });
@@ -167,7 +144,4 @@ app.get('/api/health', (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
-  if (process.env.NODE_ENV === 'production') {
-    console.log(`Production mode: ${process.env.BACKEND_URL || 'Railway'}`);
-  }
 });

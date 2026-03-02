@@ -165,7 +165,8 @@ function App() {
 
   const API_URL = import.meta.env.VITE_API_URL || ''
   const isDevelopment = import.meta.env.DEV
-  const baseURL = isDevelopment ? '' : API_URL
+  // Use relative path in production (Vercel proxy), absolute in development
+  const baseURL = isDevelopment ? API_URL : ''
 
   useEffect(() => {
     if (!isLoadingAuth) return
