@@ -12,7 +12,7 @@ const app = express();
 // Trust proxy - must be before session (for HTTPS detection)
 app.set('trust proxy', 1);
 
-// CORS configuration
+// CORS configuration - iOS compatible
 const allowedOrigins = [
   'http://localhost:5173',
   'https://*.vercel.app',
@@ -21,7 +21,11 @@ const allowedOrigins = [
 
 app.use(cors({
   origin: function (origin, callback) {
-    if (!origin || allowedOrigins.some(orig => 
+    // Allow requests with no origin (like mobile apps or Postman)
+    if (!origin) return callback(null, true);
+    
+    // Check against allowed origins
+    if (allowedOrigins.some(orig => 
       orig === origin || (orig.includes('*') && origin?.match(new RegExp(orig.replace('*', '.*'))))
     )) {
       callback(null, true);
@@ -29,19 +33,22 @@ app.use(cors({
       callback(new Error('Not allowed by CORS'));
     }
   },
-  credentials: true
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
-// Session configuration
+// Session configuration - iOS compatible
 app.use(session({
   secret: process.env.SESSION_SECRET || 'your-secret-key-change-in-production',
   resave: false,
   saveUninitialized: false,
   cookie: {
     secure: process.env.NODE_ENV === 'production', // true for HTTPS
-    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+    sameSite: 'lax', // iOS compatible - 'lax' works for top-level navigations
     httpOnly: true,
-    maxAge: 24 * 60 * 60 * 1000 // 24 hours
+    maxAge: 24 * 60 * 60 * 1000, // 24 hours
+    path: '/'
   }
 }));
 
