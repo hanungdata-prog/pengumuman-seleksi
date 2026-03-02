@@ -11,10 +11,10 @@ const app = express();
 
 app.set('trust proxy', 1);
 
-// CORS - hanya izinkan dari frontend Vercel
+// CORS - hanya izinkan dari frontend
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://pengumuman-seleksi-frontend.vercel.app',
+  'https://pengumuman-staff-ikm-itera.harch.site',
   process.env.FRONTEND_URL
 ].filter(Boolean);
 
@@ -49,8 +49,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Google OAuth - callback URL menggunakan domain FRONTEND (Vercel proxy)
-const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173';
+// Google OAuth - callback URL menggunakan domain FRONTEND
+const FRONTEND_URL = process.env.FRONTEND_URL || 'https://pengumuman-staff-ikm-itera.harch.site';
 const callbackURL = process.env.NODE_ENV === 'production'
   ? `${FRONTEND_URL}/auth/google/callback`
   : '/auth/google/callback';
