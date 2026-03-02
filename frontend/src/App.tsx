@@ -194,21 +194,21 @@ function App() {
   const handleOpenCurtain = () => {
     setCurtainStage('opening')
     
-    // Play countdown sounds
-    const countdownSounds = [
-      new Audio('/sounds/countdown-5.mp3'),
-      new Audio('/sounds/countdown-4.mp3'),
-      new Audio('/sounds/countdown-3.mp3'),
-      new Audio('/sounds/countdown-2.mp3'),
-      new Audio('/sounds/countdown-1.mp3')
-    ]
+    // Preload all audio files
+    const sounds: HTMLAudioElement[] = []
+    ;[5, 4, 3, 2, 1].forEach((num) => {
+      const audio = new Audio(`/sounds/countdown-${num}.mp3`)
+      audio.volume = 0.5
+      sounds.push(audio)
+    })
     
-    // Play sounds with delay
-    countdownSounds.forEach((sound, index) => {
-      sound.volume = 0.5
+    // Play sounds with delay: 5, 4, 3, 2, 1 (1 second each)
+    ;[0, 1, 2, 3, 4].forEach((index) => {
       setTimeout(() => {
-        sound.play().catch(() => {}) // Ignore if audio fails
-      }, index * 1200) // 1.2 second delay between each
+        sounds[index].play().catch((err) => {
+          console.error(`Audio countdown-${5 - index} failed:`, err)
+        })
+      }, index * 1000)
     })
     
     // Open curtains after countdown (6 seconds total)
