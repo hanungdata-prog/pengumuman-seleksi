@@ -56,6 +56,25 @@ export default function CurtainReveal({ result, curtainStage, onOpenCurtain, wha
           </button>
         )}
 
+        {/* Countdown */}
+        {curtainStage === 'opening' && (
+          <div className="countdown-container relative flex items-center justify-center">
+            {[5, 4, 3, 2, 1].map((num, index) => (
+              <div
+                key={num}
+                className="countdown-num absolute text-8xl md:text-9xl font-bold text-[#f0c040] font-['Cinzel_Decorative']"
+                style={{
+                  textShadow: '0 0 40px rgba(240,192,64,0.8)',
+                  opacity: 0,
+                  animation: `countdownPulse 1s ease ${index * 1.2}s forwards`
+                }}
+              >
+                {num}
+              </div>
+            ))}
+          </div>
+        )}
+
         {/* Result */}
         {result && curtainStage === 'open' && (
           <div
@@ -131,6 +150,20 @@ export default function CurtainReveal({ result, curtainStage, onOpenCurtain, wha
       </div>
 
       <style>{`
+        @keyframes countdownPulse {
+          0% {
+            opacity: 0;
+            transform: scale(0.5);
+          }
+          50% {
+            opacity: 1;
+            transform: scale(1.2);
+          }
+          100% {
+            opacity: 0;
+            transform: scale(1.5);
+          }
+        }
         @keyframes buttonPulse {
           0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(240,192,64,0.6); }
           50% { transform: scale(1.05); box-shadow: 0 0 50px rgba(240,192,64,0.8); }

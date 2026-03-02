@@ -193,12 +193,31 @@ function App() {
 
   const handleOpenCurtain = () => {
     setCurtainStage('opening')
+    
+    // Play countdown sounds
+    const countdownSounds = [
+      new Audio('/sounds/countdown-5.mp3'),
+      new Audio('/sounds/countdown-4.mp3'),
+      new Audio('/sounds/countdown-3.mp3'),
+      new Audio('/sounds/countdown-2.mp3'),
+      new Audio('/sounds/countdown-1.mp3')
+    ]
+    
+    // Play sounds with delay
+    countdownSounds.forEach((sound, index) => {
+      sound.volume = 0.5
+      setTimeout(() => {
+        sound.play().catch(() => {}) // Ignore if audio fails
+      }, index * 1200) // 1.2 second delay between each
+    })
+    
+    // Open curtains after countdown (6 seconds total)
     setTimeout(() => {
       setCurtainStage('open')
       if (result?.status === 'diterima') {
         confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } })
       }
-    }, 2000)
+    }, 6000)
   }
 
   if (!isLoadingAuth && !user) {
