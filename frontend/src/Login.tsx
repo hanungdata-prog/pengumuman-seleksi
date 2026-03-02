@@ -385,7 +385,7 @@ export default function Login({ onLoginSuccess }: LoginProps) {
           </div>
 
           <div className="card-footer">
-            <span className="footer-brand">BPH IKM</span>
+            <span className="footer-brand">BPH IKM 2026 - 2027</span>
             <span className="footer-copy">© 2026 All rights reserved.</span>
           </div>
         </div>

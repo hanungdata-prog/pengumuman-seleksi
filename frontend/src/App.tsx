@@ -765,7 +765,7 @@ function App() {
 
           {/* Footer */}
           <footer className="app-footer">
-            © 2026 <span>BPH IKM</span>. All rights reserved.
+            © 2026 <span>BPH IKM 2026 - 2027</span>. All rights reserved.
           </footer>
 
         </div>
